@@ -225,6 +225,9 @@ export class Player extends Character{
                 }
             }
         }
+        if (["thwomp","boss"].includes(this.collisionData.touchPoints.other.id)) {
+            GameControl.transitionToLevel(GameEnv.levels[GameEnv.levels.indexOf(GameEnv.currentLevel)]);
+        }
         if (this.collisionData.touchPoints.other.id === "jumpPlatform") {
             // Player is on top of the Jump platform
             if (this.collisionData.touchPoints.this.top) {

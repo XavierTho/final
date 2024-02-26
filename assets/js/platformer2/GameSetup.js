@@ -11,6 +11,8 @@ import Player from './Player.js';
 import Tube from './Tube.js';
 import Goomba from './Goomba.js';
 import FlyingGoomba from './FlyingGoomba.js';
+import Thwomp from './Thwomp.js';
+import Boss from './Boss.js';
 import BlockPlatform from './BlockPlatform.js'
 import Coin from './Coin.js';
 
@@ -164,7 +166,7 @@ const GameSetup = {
     assets: {
       obstacles: {
         tube: { src: "/images/platformer/obstacles/tube.png" },
-        coin: { src: "/images/platformer/obstacles/coin.png"}
+        coin: { src: "/images/platformer/obstacles/coin.png"},
       },
       platforms: {
         grass: { src: "/images/platformer/platforms/grass.png" },
@@ -250,6 +252,20 @@ const GameSetup = {
           height: 452,
           scaleSize: 60,
           speedRatio: 0.7,
+        },
+        thwomp: {
+          src: "/images/platformer/sprites/thwomp.png",
+          width: 40,
+          height: 60,
+          scaleSize: 80,
+          speedRatio: 0.7,
+        },
+        boss: {
+          src: "/images/platformer/sprites/boss.png",
+          width: 40,
+          height: 60,
+          scaleSize: 140,
+          speedRatio: 0.7,
         }
       }
     },
@@ -307,7 +323,7 @@ const GameSetup = {
         { name: 'goomba', id: 'goomba', class: Goomba, data: this.assets.enemies.goomba, xPercentage:  0.5, yPercentage: 1, minPosition: 0.3 },
         { name: 'goomba', id: 'goomba', class: Goomba, data: this.assets.enemies.goomba, xPercentage:  0.75, yPercentage: 1, minPosition: 0.5 },
         { name: 'mario', id: 'player', class: Player, data: this.assets.players.mario },
-        { name: 'tube', id: 'tube', class: Tube, data: this.assets.obstacles.tube },
+        { name: 'tube', id: 'tube', class: Tube, data: this.assets.obstacles.tube, yPercentage: 1 },
         { name: 'coin', id: 'coin', class: Coin, data: this.assets.obstacles.coin},
         ];
         // Hills Game Level added to the GameEnv ...
@@ -348,6 +364,43 @@ const GameSetup = {
         ];
         // Avenida Game Level added to the GameEnv ...
         new GameLevel( {tag: "space", callback: this.playerOffScreenCallBack, objects: spaceGameObjects} );
+
+        // Space Game Level definition...
+        const bossGameObjects = [
+          // GameObject(s), the order is important to z-index...
+          { name: 'hills', id: 'background', class: BackgroundHills, data: this.assets.backgrounds.hills },
+          { name: 'grass', id: 'platform', class: Platform, data: this.assets.platforms.grass },
+
+          //Thwomps on Left
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.1, yPercentage: 0.6 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.13, yPercentage: 0.6 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.16, yPercentage: 0.6 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.19, yPercentage: 0.6 },
+
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.1, yPercentage: 0.3 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.13, yPercentage: 0.3 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.16, yPercentage: 0.3 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.19, yPercentage: 0.3 },
+
+          //Thwomps on Right
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.6, yPercentage: 0.6 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.63, yPercentage: 0.6 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.66, yPercentage: 0.6 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.69, yPercentage: 0.6 },
+
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.6, yPercentage: 0.3 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.63, yPercentage: 0.3 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.66, yPercentage: 0.3 },
+          { name: 'thwomp', id: 'thwomp', class: Thwomp, data: this.assets.enemies.thwomp, xPercentage: 0.69, yPercentage: 0.3 },
+
+          // Boss
+          { name: 'boss', id: 'boss', class: Boss, data: this.assets.enemies.boss, xPercentage: 0.4125, yPercentage: 0.1},
+          
+          { name: 'mario', id: 'player', class: Player, data: this.assets.players.mario },
+          { name: 'tube', id: 'tube', class: Tube, data: this.assets.obstacles.tube },
+        ];
+        // Avenida Game Level added to the GameEnv ...
+        new GameLevel( {tag: "boss", callback: this.playerOffScreenCallBack, objects: bossGameObjects} );
 
         // Game Over Level definition...
         const endGameObjects = [
