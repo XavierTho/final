@@ -1,5 +1,5 @@
 ---
-layout: game
+layout: base
 title: Game of Life
 description: A remix of Conway's game of life using timer, onclick and algorithms.  
 type: tangibles
