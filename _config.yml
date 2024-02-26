@@ -2,8 +2,8 @@ title: Finals Blog
 description: "Jan-Feb 2024"
 owner_name: Xavier Thompson
 github_username: XavierTho
-github_repo: "game_levels_mp"
-baseurl: "/game_levels_mp"
+github_repo: "final"
+baseurl: "/final"
 future: true
 remote_theme: jekyll/minima  
 # remote_theme: pages-themes/dinky@v0.2.0
