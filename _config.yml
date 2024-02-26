@@ -2,15 +2,10 @@ title: Finals Blog
 description: "Jan-Feb 2024"
 owner_name: Xavier Thompson
 github_username: XavierTho
-github_repo: "final"
+github_repo: "XavierTho/final"
 baseurl: "/final"
 future: true
-remote_theme: jekyll/minima  
-# remote_theme: pages-themes/dinky@v0.2.0
-# remote_theme: pages-themes/minimal@v0.2.0
-# remote_theme: pages-themes/hacker@v0.2.0
-# remote_theme: pages-themes/cayman@v0.2.0
-# remote_theme: pages-themes/time-machine@v0.2.0
+remote_theme: jekyll/minima
 plugins:
 - jekyll-remote-theme
 header_pages:
